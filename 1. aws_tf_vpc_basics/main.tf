@@ -48,28 +48,45 @@ resource "aws_route_table_association" "rt-association" {
   route_table_id = aws_route_table.rt.id
 }
 
-resource "aws_security_group" "allow_tls" {
+locals {
+  ports_in = [
+    443,
+    80,
+    22
+  ]
+  ports_out = [
+    0
+  ]
+}
+
+resource "aws_security_group" "allow_sgs" {
   name        = "dev_sg"
   description = "Allow inbound traffic"
   vpc_id      = aws_vpc.main.id
 
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "ingress" {
+    for_each = toset(local.ports_in)
+    content {
+      description      = "HTTPS from VPC"
+      from_port        = ingress.value
+      to_port          = ingress.value
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+    }
   }
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+  dynamic "egress" {
+    for_each = toset(local.ports_out)
+    content {
+      from_port        = egress.value
+      to_port          = egress.value
+      protocol         = "-1"
+      cidr_blocks      = ["0.0.0.0/0"]
+    }
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "allow_sgs"
   }
 }
 
