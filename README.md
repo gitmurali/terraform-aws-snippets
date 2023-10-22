@@ -1,2 +1,3 @@
 # terraform-aws-snippets
-Terraform aws snippets
+
+Readme will be updated.
