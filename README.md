@@ -4,6 +4,7 @@ You will find list of aws terraform infrastructure templates here in this repo.
 
 - [1. vpc](./1.%20aws_tf_vpc_basics/)
 - [2. rds with secrets manager](./2.%20aws_tf_rds_secrets_manager/)
+- [3. ec2 with ebs attachment](./3.%20aws_tf_ec2_ebs_userdata/)
 
 ## Contents
 
@@ -14,3 +15,7 @@ In this directory you will find terraform code to create AWS VPC and ec2 instanc
 ### 2. rds with secrets manager
 
 In this directory you will find terraform code to create AWS RDS databases using secrets manager.
+
+### 3. ec2 with ebs attachment
+
+In this directory you will find terraform code to create AWS ec2 with ebs attachment on ec2 start up.
