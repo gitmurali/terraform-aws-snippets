@@ -7,6 +7,7 @@ You will find list of aws terraform infrastructure templates here in this repo.
 - [3. ec2 with ebs attachment](./3.%20aws_tf_ec2_ebs_userdata/)
 - [4. ec2 with s3 access](./4.%20aws_tf_ec2_s3/)
 - [5. ECS with Fargate](./5.%20aws_tf_ecs_fargate/)
+- [6. API Gateway + Lambda Integration](./6.%20aws_tf_api_gateway_lambda_integration/)
 
 ## Contents
 
@@ -29,3 +30,7 @@ In this directory you will find terraform code to create AWS ec2 with s3 access 
 ### 5. ECS using Fargate
 
 In this directory you will find terraform code to create ECS Cluster using Fargate launch type
+
+### 6. API Gateway + Lambda Integration
+
+In this directory you will find terraform code to create Api gateway + lambda integration
